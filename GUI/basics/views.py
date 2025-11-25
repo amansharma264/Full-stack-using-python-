@@ -33,3 +33,23 @@ def counter(request):
 
     # On GET request, send initial data
     return render(request, "counter.html", {'result': result})
+
+def calci(request):
+    if(request.method=="POST"):
+        data=request.POST
+        firstnumber=int(data.get('textfirstnumber'))
+        secondnumber=int(data.get('textsecondnumber'))
+        if('buttonadd' in request.POST):
+            result=firstnumber+secondnumber
+            return render(request,'calci.html',context={'result': "sum="+str{result}})
+        if('buttonadd' in request.POST):
+            result=firstnumber-secondnumber
+            return render(request,'calci.html',context={'result': "sub="+str{result}})
+        if('buttonadd' in request.POST):
+            result=firstnumber*secondnumber
+            return render(request,'calci.html',context={'result': "mul="+str{result}})
+        if('buttonadd' in request.POST):
+            result=firstnumber/secondnumber
+            return render(request,'calci.html',context={'result': "div="+str{result}})
+        
+    return render(request,'calci.html')

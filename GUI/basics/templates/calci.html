@@ -7,6 +7,8 @@
 </head>
 <body>
     <form action="POST">
+        (% csrf_token %)
+        <h1>Calculator</h1>
         <center>
             <table>
                 <tr>
@@ -32,6 +34,12 @@
                         <button type="submit" name="buttonmul">MUL</button>
                         <button type="submit" name="buttondiv">DIV</button>
                     </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{result}}
+                        </td>
+                    </tr>
             </table>
         </center>
     </form>
