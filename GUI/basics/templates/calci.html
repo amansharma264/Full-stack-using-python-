@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="POST">
-        (% csrf_token %)
+    <form method="POST">
+        {% csrf_token %}
         <h1>Calculator</h1>
         <center>
             <table>

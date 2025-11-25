@@ -14,7 +14,6 @@ def counter(request):
         data = request.POST
         result = data.get('result')
 
-        # If result is empty or None → default to 0
         if not result:
             result = 0
         else:
@@ -31,25 +30,32 @@ def counter(request):
 
         return render(request, "counter.html", {'result': result})
 
-    # On GET request, send initial data
     return render(request, "counter.html", {'result': result})
+
 
 def calci(request):
     if(request.method=="POST"):
         data=request.POST
         firstnumber=int(data.get('textfirstnumber'))
         secondnumber=int(data.get('textsecondnumber'))
+        
         if('buttonadd' in request.POST):
             result=firstnumber+secondnumber
-            return render(request,'calci.html',context={'result': "sum="+str{result}})
-        if('buttonadd' in request.POST):
+            return render(request,'calci.html',context={'result': "sum="+str(result)})
+        
+        if('buttonsub' in request.POST):
             result=firstnumber-secondnumber
-            return render(request,'calci.html',context={'result': "sub="+str{result}})
-        if('buttonadd' in request.POST):
+            return render(request,'calci.html',context={'result': "sub="+str(result)})
+        
+        if('buttonmul' in request.POST):
             result=firstnumber*secondnumber
-            return render(request,'calci.html',context={'result': "mul="+str{result}})
-        if('buttonadd' in request.POST):
-            result=firstnumber/secondnumber
-            return render(request,'calci.html',context={'result': "div="+str{result}})
+            return render(request,'calci.html',context={'result': "mul="+str(result)})
+        
+        if('buttondiv' in request.POST):
+            if secondnumber != 0:
+                result=firstnumber/secondnumber
+                return render(request,'calci.html',context={'result': "div="+str(result)})
+            else:
+                return render(request,'calci.html',context={'result': "Cannot divide by 0"})
         
     return render(request,'calci.html')
