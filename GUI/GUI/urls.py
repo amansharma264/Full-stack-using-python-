@@ -20,6 +20,9 @@ Including another URLconf
 from django.urls import path
 from basics import views
 
+from django.urls import path
+from basics import views
+
 urlpatterns = [
     path("abc/", views.abc, name='abc'),
     path("led/", views.led, name='led'),
@@ -27,7 +30,8 @@ urlpatterns = [
     path("calci/", views.calci, name='calci'),
     path("department/", views.department, name='department'),
     path("departmentview/", views.departmentview, name='departmentview'),
-    path("departmentupdate/",views.departmentupdate,name='departmentupdate'),
-    path("departmentdelete/", views.departmentdelete,name='departmentdelete'),
+    path("departmentupdate/<int:id>/", views.departmentupdate, name='departmentupdate'),
+    path("departmentdelete/<int:id>/", views.departmentdelete, name='departmentdelete'),
 ]
+
 

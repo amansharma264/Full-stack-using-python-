@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
 from .models import StudentDepartment  # Make sure this exists
+from django.shortcuts import redirect
 
 def abc(request):
     return render(request, "abc.html")
@@ -66,11 +67,10 @@ def departmentupdate(request,id):
     if(request.method=="POST"):
         return render(request,'departmentupdate.html',context={'getdepartments':getdepartments})
 
-def departmentdelete(request,id):
-    getdepartments=StudentDepartment.objects.get(id=id)
-    if(request.method=="POST"):
-        data = request.POST
+def departmentdelete(request, id):
+    getdepartments = StudentDepartment.objects.get(id=id)
+    if request.method == "POST":
         getdepartments.delete()
-        return redirect('/departmentview')
-    return render(request,'departmentdelete.html',context={'getdepartments':getdepartments})
+        return redirect('departmentview')  # Prefer URL name instead of hardcoded
+    return render(request, 'departmentdelete.html', context={'getdepartments': getdepartments})
 
