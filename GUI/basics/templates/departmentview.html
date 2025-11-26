@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <center>
+            <h1>Department View</h1>
+            <table>
+                <tr>
+                    <td>
+                        Department Name :
+                    </td>
+                    <td>
+                        Department Desc :
+                    </td>
+                </tr>
+                {{% for department in getdepartment %}}
+                <tr>
+                    <td>
+                        {{department.DEPT_DESC}}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </form>
+</body>
+</html>

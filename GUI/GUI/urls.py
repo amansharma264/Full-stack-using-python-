@@ -18,13 +18,14 @@ Including another URLconf
 
 # In urls.py (just to double-check)
 from django.urls import path
-from basics.views import * 
+from basics import views
 
 urlpatterns = [
-    path("abc/",abc),
-    path("led/", led),  # http://127.0.0.1:8000/led/
-    path("counter/",counter),
-    path("calci/", calci),
-    path("department/",department),
+    path("abc/", views.abc, name='abc'),
+    path("led/", views.led, name='led'),
+    path("counter/", views.counter, name='counter'),
+    path("calci/", views.calci, name='calci'),
+    path("department/", views.department, name='department'),
+    path("departmentview/", views.departmentview, name='departmentview'),
 ]
 
