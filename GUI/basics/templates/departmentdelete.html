@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <center>
+            <h1>Department Delete</h1>
+            <table>
+                <tr>
+                    <td>
+                        Department Name:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getdepartment.DEPT_NAME}}" name="textdepartmentname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-primary" name="submit">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{result}}
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+</html>

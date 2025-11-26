@@ -61,3 +61,16 @@ def department(request):
 def departmentview(request):
     getdepartment = StudentDepartment.objects.all()
     return render(request, "departmentview.html", context={'getdepartment': getdepartment})
+
+def departmentupdate(request,id):
+    if(request.method=="POST"):
+        return render(request,'departmentupdate.html',context={'getdepartments':getdepartments})
+
+def departmentdelete(request,id):
+    getdepartments=StudentDepartment.objects.get(id=id)
+    if(request.method=="POST"):
+        data = request.POST
+        getdepartments.delete()
+        return redirect('/departmentview')
+    return render(request,'departmentdelete.html',context={'getdepartments':getdepartments})
+

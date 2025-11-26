@@ -27,5 +27,7 @@ urlpatterns = [
     path("calci/", views.calci, name='calci'),
     path("department/", views.department, name='department'),
     path("departmentview/", views.departmentview, name='departmentview'),
+    path("departmentupdate/",views.departmentupdate,name='departmentupdate'),
+    path("departmentdelete/", views.departmentdelete,name='departmentdelete'),
 ]
 
