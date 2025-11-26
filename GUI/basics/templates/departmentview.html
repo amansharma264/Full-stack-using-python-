@@ -9,20 +9,15 @@
     <form method="POST">
         <center>
             <h1>Department View</h1>
-            <table>
+            <table border="1" cellspacing="0" cellpadding="5">
                 <tr>
-                    <td>
-                        Department Name :
-                    </td>
-                    <td>
-                        Department Desc :
-                    </td>
+                    <th>Department Name</th>
+                    <th>Department Desc</th>
                 </tr>
-                {{% for department in getdepartment %}}
+                {% for department in getdepartment %}
                 <tr>
-                    <td>
-                        {{department.DEPT_DESC}}
-                    </td>
+                    <td>{{ department.DEPT_NAME }}</td>
+                    <td>{{ department.DEPT_DESC }}</td>
                 </tr>
                 {% endfor %}
             </table>
