@@ -25,5 +25,6 @@ urlpatterns = [
     path("led/", led),  # http://127.0.0.1:8000/led/
     path("counter/",counter),
     path("calci/", calci),
+    path("department/",department),
 ]
 

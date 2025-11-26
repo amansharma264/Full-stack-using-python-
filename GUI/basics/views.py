@@ -59,3 +59,13 @@ def calci(request):
                 return render(request,'calci.html',context={'result': "Cannot divide by 0"})
         
     return render(request,'calci.html')
+
+def department(request):
+    if(request.method="POST"):
+        data = request.POST
+        deptname = data.get('textdepartmentname')
+        deptdesc = data.get('textdepartmentdesc')
+        studentDepartment.objects.create(DEPT_NAME=deptname,DEPT_DESC=deptdesc)
+        result="Department Details saved successfully"
+        return render(request,'department.html', context=('result': result))
+    return render(request, 'department.html')
